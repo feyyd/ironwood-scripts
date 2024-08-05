@@ -1,6 +1,3 @@
-def calculate_profit(base_rate, efficiency_speed_multiplier, profit_per_item):
-    return base_rate * efficiency_speed_multiplier * profit_per_item
-
 def calculate_percentage_difference(profit1, profit2):
     return (profit2 / profit1 - 1) * 100
 
@@ -9,9 +6,9 @@ def calculate_speed_multiplier(reference_item, target_item, ref_base_rate_multip
     _, ref_base_rate, ref_profit = reference_item
     _, tar_base_rate, tar_profit = target_item
     
-    # Calculate profits with multiplier = 1, or pass adjusted rates (skill/efficiency diff %)
-    ref_profit_value = calculate_profit(ref_base_rate, ref_base_rate_multiplier, ref_profit)
-    tar_profit_value = calculate_profit(tar_base_rate, tar_base_rate_multiplier, tar_profit)
+    # Calculate profits with multiplier
+    ref_profit_value = ref_base_rate * ref_base_rate_multiplier * ref_profit
+    tar_profit_value = tar_base_rate * tar_base_rate_multiplier * tar_profit
     
     return ref_profit_value / tar_profit_value
 
@@ -38,7 +35,7 @@ def create_comparison_table(skill_one_items, skill_two_items, skill_one_multipli
     
     for skill_one_item in skill_one_items:
         row = [skill_one_item[0]] + [
-            f"{(calculate_speed_multiplier(skill_one_item, skill_two_item, 1.0, skill_two_multiplier) - 1) * 100:.1f}%"
+            f"{(calculate_speed_multiplier(skill_one_item, skill_two_item, skill_one_multiplier, skill_two_multiplier) - 1) * 100:.1f}%"
             for skill_two_item in skill_two_items
         ]
         print(format_str.format(*row))
