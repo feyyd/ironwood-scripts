@@ -1,16 +1,16 @@
 def calculate_percentage_difference(profit1, profit2):
     return (profit2 / profit1 - 1) * 100
 
-def calculate_speed_multiplier(reference_item, target_item, ref_base_rate_multiplier, tar_base_rate_multiplier):
+def calculate_speed_multiplier(skill_one_item, skill_two_item, skill_one_multiplier, skill_two_multiplier):
     # Unpack items
-    _, ref_base_rate, ref_profit = reference_item
-    _, tar_base_rate, tar_profit = target_item
+    _, skill_one_profit, skill_one_base_rate = skill_one_item
+    _, skill_two_profit, skill_two_base_rate = skill_two_item
     
     # Calculate profits with multiplier
-    ref_profit_value = ref_base_rate * ref_base_rate_multiplier * ref_profit
-    tar_profit_value = tar_base_rate * tar_base_rate_multiplier * tar_profit
+    skill_one_profit_value = skill_one_base_rate * skill_one_multiplier * skill_one_profit
+    skill_two_profit_value = skill_two_base_rate * skill_two_multiplier * skill_two_profit
     
-    return ref_profit_value / tar_profit_value
+    return skill_one_profit_value / skill_two_profit_value
 
 def create_comparison_table(skill_one_items, skill_two_items, skill_one_multiplier=1.0, skill_two_multiplier=1.0):
     # Create header
@@ -71,10 +71,12 @@ skill_two = [
     ("Infernal", 32 )
 ]
 
+# Add as a column to each skill
 skill_base_rate = [3600 / x for x in [4.1, 6.1, 8.1, 10.1, 12.1, 14.1, 16.1, 18.1]]
 skill_one = [(*skill, rate) for skill, rate in zip(skill_one, skill_base_rate)]
 skill_two = [(*skill, rate) for skill, rate in zip(skill_two, skill_base_rate)]
 
+print(repr(skill_one))
 
 # List w/ same price/efficiency/speed
 #create_comparison_list(skill_one, skill_one)
