@@ -1,5 +1,5 @@
 # README
-
+```
 skill_one = [
     ("Peony",        10  ),    ("Tulip",        14  ),
     ("Rose",         20  ),    ("Daisy",        26  ),
@@ -13,8 +13,9 @@ skill_two = [
     ("Cobalt",    20  ),    ("Obsidian",  24  ),
     ("Astral",    28  ),    ("Infernal",  32  )
 ]
-
+```
 List view
+```
 def create_comparison_list(skill_one_items, skill_two_items, skill_one_multiplier = 1.0, skill_two_multiplier = 1.0):
 
 create_comparison_list(skill_one, skill_one)
@@ -40,6 +41,7 @@ Rose                : vs Tulip                                 7.6%
 Rose                : vs Rose                                  0.0%
 
 create_comparison_list(skill_one, skill_two) # Different priced items comparison 
+
 Peony               : vs Copper                              150.0%
 Peony               : vs Iron                                 86.0%
 Peony               : vs Silver                               64.6%
@@ -47,20 +49,23 @@ Peony               : vs Silver                               64.6%
 We would need 150% in efficiency and skill to make as much Peony with same skills.  Items take same time to create, copper gives 4g, Peony 10g.
 
 - Modify skill_two efficiency/speed by 150% (1+1.5) to confirm
+- 
 create_comparison_list(skill_one, skill_two, 1.0, 2.5)
+
 Peony               : vs Copper                                0.0%
 Peony               : vs Iron                                -25.6%
 Peony               : vs Silver                              -34.1%
 
 With an increase of 150% from skills/speed, we reach parity of Copper/Peony.
+
 Iron becomes more profitable than Peony, so much that there is an excess 25% of efficiency/speed (25% is 100 levels or ~3 building upgrades)
-
-
+```
 Table view and intended use
+```
 Different prices with different (skills) efficiency/speed, ie: 25 skill levels (6.25%) and 2% from items, with reminder of the 2.5 example for clarity
+
 create_comparison_table(skill_one, skill_two, 1.0, 1.0825)
 create_comparison_table(skill_one, skill_two, 1.0, 2.5)
-
 
 Comparison Table (values show required % increase in speed/efficiency for Skill Two):
 Skill One / Skill Two  Copper  Iron   Silver  Gold   Cobalt  Obsidian  Astral  Infernal
@@ -85,3 +90,4 @@ Lilac                  8.4%    -19.3%  -28.6%  -33.2%  -36.0%  -37.9%    -39.2% 
 Hyacinth               10.5%   -17.8%  -27.2%  -32.0%  -34.8%  -36.7%    -38.0%  -39.0%
 Nemesia                12.0%   -16.6%  -26.2%  -31.0%  -33.9%  -35.8%    -37.1%  -38.2%
 Snapdragon             13.3%   -15.7%  -25.4%  -30.2%  -33.1%  -35.1%    -36.5%  -37.5%
+```
