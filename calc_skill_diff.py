@@ -76,8 +76,6 @@ skill_base_rate = [3600 / x for x in [4.1, 6.1, 8.1, 10.1, 12.1, 14.1, 16.1, 18.
 skill_one = [(*skill, rate) for skill, rate in zip(skill_one, skill_base_rate)]
 skill_two = [(*skill, rate) for skill, rate in zip(skill_two, skill_base_rate)]
 
-print(repr(skill_one))
-
 # List w/ same price/efficiency/speed
 #create_comparison_list(skill_one, skill_one)
 
