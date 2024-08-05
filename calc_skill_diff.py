@@ -55,29 +55,33 @@ def create_comparison_list(skill_one_items, skill_two_items, ref_base_rate_multi
             multiplier = calculate_speed_multiplier(skill_one_item, skill_two_item, ref_base_rate_multiplier, tar_base_rate_multiplier)
             print(f"{skill_two_item[0]:<{20}}: vs {skill_one_item[0]:<{20}} {(multiplier - 1) * 100:>{20}.1f}%")
 
-# Data for skill_two (name, base_rate, profit_per_item)
+
 skill_one = [
-    ("Peony",       3600 / 4.1,  10  ),
-    ("Tulip",       3600 / 6.1,  14  ),
-    ("Rose",        3600 / 8.1,  20 ),
-    ("Daisy",       3600 / 10.1, 26 ),
-    ("Lilac",       3600 / 12.1, 32 ),
-    ("Hyacinth",    3600 / 14.1, 38 ),
-    ("Nemesia",     3600 / 16.1, 44 ),
-    ("Snapdragon",  3600 / 18.1, 50 )
+    ("Peony",        10  ),
+    ("Tulip",        14  ),
+    ("Rose",         20  ),
+    ("Daisy",        26  ),
+    ("Lilac",        32  ),
+    ("Hyacinth",     38  ),
+    ("Nemesia",      44  ),
+    ("Snapdragon",   50  )
 ]
 
-# Data for skill_one (name, base_rate, profit_per_item)
 skill_two = [
-    ("Copper",   3600 / 4.1,  4  ),
-    ("Iron",     3600 / 6.1,  8  ),
-    ("Silver",   3600 / 8.1,  12 ),
-    ("Gold",     3600 / 10.1, 16 ),
-    ("Cobalt",   3600 / 12.1, 20 ),
-    ("Obsidian", 3600 / 14.1, 24 ),
-    ("Astral",   3600 / 16.1, 28 ),
-    ("Infernal", 3600 / 18.1, 32 )
+    ("Copper",     4  ),
+    ("Iron",       8  ),
+    ("Silver",    12  ),
+    ("Gold",      16  ),
+    ("Cobalt",    20  ),
+    ("Obsidian",  24  ),
+    ("Astral",    28  ),
+    ("Infernal",  32  )
 ]
+
+skill_base_rate = [3600 / x for x in [4.1, 6.1, 8.1, 10.1, 12.1, 14.1, 16.1, 18.1]]
+skill_one = [(*skill, rate) for skill, rate in zip(skill_one, skill_base_rate)]
+skill_two = [(*skill, rate) for skill, rate in zip(skill_two, skill_base_rate)]
+
 
 # same price and efficiency/speed
 #create_comparison_list(skill_one, skill_one)
