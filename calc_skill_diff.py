@@ -48,12 +48,12 @@ def create_comparison_table(skill_one_items, skill_two_items, skill_one_multipli
         print(format_str.format(*row))
 
 # Functionally the same as above table version
-def create_comparison_list(skill_one_items, skill_two_items, ref_base_rate_multiplier = 1.0, tar_base_rate_multiplier = 1.0):
+def create_comparison_list(skill_one_items, skill_two_items, skill_one_multiplier = 1.0, skill_two_multiplier = 1.0):
     print("Required Total Speed/Efficiency Multipliers for Each Pair:\n")
     for skill_one_item in skill_one_items:
         for skill_two_item in skill_two_items:
-            multiplier = calculate_speed_multiplier(skill_one_item, skill_two_item, ref_base_rate_multiplier, tar_base_rate_multiplier)
-            print(f"{skill_two_item[0]:<{20}}: vs {skill_one_item[0]:<{20}} {(multiplier - 1) * 100:>{20}.1f}%")
+            multiplier = calculate_speed_multiplier(skill_one_item, skill_two_item, skill_one_multiplier, skill_two_multiplier)
+            print(f"{skill_one_item[0]:<{20}}: vs {skill_two_item[0]:<{20}} {(multiplier - 1) * 100:>{20}.1f}%")
 
 
 skill_one = [
@@ -83,24 +83,22 @@ skill_one = [(*skill, rate) for skill, rate in zip(skill_one, skill_base_rate)]
 skill_two = [(*skill, rate) for skill, rate in zip(skill_two, skill_base_rate)]
 
 
-# same price and efficiency/speed
+# List w/ same price/efficiency/speed
 #create_comparison_list(skill_one, skill_one)
 
-# different prices same efficiency/speed
+# List w/ different prices and same efficiency/speed
 #create_comparison_list(skill_one, skill_two)
 
-# Intended use - different prices different efficiency/speed, ie: 25 skill levels (6.25%) and 2% from items
-#create_comparison_list(skill_one, skill_two, 1.0, 1.0825)
+# List w/ different prices and different efficiency/speed
+#create_comparison_list(skill_one, skill_two, 1, 2.5)
 
-# Table format #
-# same price and efficiency/speed
+# Table format
+# Table w/ same price/efficiency/speed
 #create_comparison_table(skill_one, skill_one)
 
-# same price and efficiency/speed
-#create_comparison_table(skill_one, skill_one, 1.0825)
-
-# different prices same efficiency/speed
+# Table w/ different prices and same efficiency/speed
 #create_comparison_table(skill_one, skill_two)
 
-# Intended use - different prices different efficiency/speed, ie: 25 skill levels (6.25%) and 2% from items
+# Intended use - Table w/ different prices and different efficiency/speed, ie: 25 skill levels (6.25%) and 2% from items
 create_comparison_table(skill_one, skill_two, 1.0, 1.0825)
+#create_comparison_table(skill_one, skill_two, 1.0, 2.5)
