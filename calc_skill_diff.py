@@ -13,11 +13,7 @@ def calculate_speed_multiplier(reference_item, target_item, ref_base_rate_multip
     ref_profit_value = calculate_profit(ref_base_rate, ref_base_rate_multiplier, ref_profit)
     tar_profit_value = calculate_profit(tar_base_rate, tar_base_rate_multiplier, tar_profit)
     
-    # Calculate the required multiplier to match the percentage difference
-    if tar_profit_value == ref_profit_value:
-        return 1.0  # No adjustment needed
-    else:
-        return ref_profit_value / tar_profit_value
+    return ref_profit_value / tar_profit_value
 
 def create_comparison_table(skill_one_items, skill_two_items, skill_one_multiplier=1.0, skill_two_multiplier=1.0):
     # Create header
@@ -57,25 +53,25 @@ def create_comparison_list(skill_one_items, skill_two_items, skill_one_multiplie
 
 
 skill_one = [
-    ("Peony",        10  ),
-    ("Tulip",        14  ),
-    ("Rose",         20  ),
-    ("Daisy",        26  ),
-    ("Lilac",        32  ),
-    ("Hyacinth",     38  ),
-    ("Nemesia",      44  ),
-    ("Snapdragon",   50  )
+    ("Peony",      10 ),
+    ("Tulip",      14 ),
+    ("Rose",       20 ),
+    ("Daisy",      26 ),
+    ("Lilac",      32 ),
+    ("Hyacinth",   38 ),
+    ("Nemesia",    44 ),
+    ("Snapdragon", 50 )
 ]
 
 skill_two = [
-    ("Copper",     4  ),
-    ("Iron",       8  ),
-    ("Silver",    12  ),
-    ("Gold",      16  ),
-    ("Cobalt",    20  ),
-    ("Obsidian",  24  ),
-    ("Astral",    28  ),
-    ("Infernal",  32  )
+    ("Copper",    4 ),
+    ("Iron",      8 ),
+    ("Silver",   12 ),
+    ("Gold",     16 ),
+    ("Cobalt",   20 ),
+    ("Obsidian", 24 ),
+    ("Astral",   28 ),
+    ("Infernal", 32 )
 ]
 
 skill_base_rate = [3600 / x for x in [4.1, 6.1, 8.1, 10.1, 12.1, 14.1, 16.1, 18.1]]
